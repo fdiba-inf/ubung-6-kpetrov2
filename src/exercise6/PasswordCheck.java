@@ -6,11 +6,15 @@ public class PasswordCheck {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String password = input.next();
-        int counter = 0;
-        int numbers = 0;
+        String password;
+        int counter;
+        int numbers;
 
-        if (password.length() > 7) { 
+         do { 
+          password = input.next();
+          counter = 0;
+          numbers = 0;
+
           for ( int i = 0 ; i < password.length() ; i++) {
           int digit = password.charAt(i);
             if (Character.isLetterOrDigit(digit)) {
@@ -20,9 +24,9 @@ public class PasswordCheck {
                 }
               }
             }
-          if (counter == password.length() && numbers > 1 ) {
-            System.out.println("Password valid!");
-          }
-        }  
+        }
+        while (password.length() < 8 || counter < password.length() || numbers < 2 ) ;
+        System.out.println("Password valid!");
+         
     }
 }
